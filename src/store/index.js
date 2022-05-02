@@ -5,13 +5,15 @@ export default createStore({
   state() {
     return {
       catalogue: productsData,
-      panier: [],
-      test: 'coucou'
+      panier: []
     }
   },
   getters: {
   },
   mutations: {
+    addToCart(state, id) {
+      state.panier.push(id)
+    }
   },
   actions: {
   },
