@@ -16,7 +16,7 @@
             <td>{{product.productName}}</td>
             <td>{{product.productPrice}}</td>
             <td>
-              <button @click="addToCart(product.productId)">+panier</button>
+              <button @click="addToCart(product)">+panier</button>
             </td>
           </tr>
       </tbody>
@@ -31,13 +31,12 @@ export default {
   name: 'HomeView',
   components: {},
   methods: {
-    addToCart(id) {
-      //console.log('ajout au panier: '+id)
-      this.$store.commit('addToCart', id)
+    addToCart(product) {
+      this.$store.commit('addToCart', product)
       console.log('panier :')
-      for (let index = 0; index < this.$store.state.panier.length; index++) {
+      for(let index = 0; index < this.$store.state.panier.length; index++) {
         const element = this.$store.state.panier[index];
-        console.log(element)
+        console.log(element.produit.productName+' x'+element.quantite)
       }
     }
   }

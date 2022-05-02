@@ -8,15 +8,33 @@ export default createStore({
       panier: []
     }
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
-    addToCart(state, id) {
-      state.panier.push(id)
+    addToCart(state, product) {
+      var incart = false;
+      for(let index = 0; index < state.panier.length; index++) {
+        if(state.panier[index].produit.productId == product.productId) {
+          incart = true;
+          var key = index;
+        }
+      }
+      if(!incart) {
+        state.panier.push({
+          produit: product,
+          quantite: 1
+        });
+      } else {
+        state.panier[key].quantite++
+      }
+    },
+    removeFromCart(state, product) {
+      for(let index = 0; index < state.panier.length; index++) {
+        if(state.panier[index] == product) {
+          state.panier.splice(index, 1);
+        }
+      }
     }
   },
-  actions: {
-  },
-  modules: {
-  }
+  actions: {},
+  modules: {}
 })
