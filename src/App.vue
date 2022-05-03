@@ -1,8 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Catalogue</router-link> |
-    <router-link to="/panier">Panier</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/panier">Panier</router-link>
   </nav>
   <router-view/>
 </template>
