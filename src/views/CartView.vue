@@ -6,25 +6,23 @@
       v-for="(item, index) in this.$store.state.panier"
       :key="index"
     >
-    <div class="col">
+    <div class="col-2">
       <img
             width="150"
             :src="item.produit.productPicture"
             onerror="this.src='https://demofree.sirv.com/nope-not-here.jpg';"
           />
     </div>
-      <div class="col">
+      <div class="col-6">
         <p>{{ item.produit.productName }}</p>
-        <p>{{ item.produit.productPrice }}</p>
+        <p>{{ displayPrice(item.produit.productPrice) }}</p>
       </div>
-      <div class="col">
+      <div class="col-2">
         <button @click="removeOne(item)">-</button>{{ item.quantite
         }}<button @click="addOne(item)">+</button>
       </div>
-      <div class="col">
-        <button class="btn btn-outline-danger" @click="removeFromCart(item)">
-          Supprimer
-        </button>
+      <div class="col-2">
+        <button class="btn btn-outline-danger" @click="removeFromCart(item)">X</button>
       </div>
     </div>
     <div class="row">
@@ -58,6 +56,18 @@ export default {
     removeOne(product) {
       this.$store.commit("removeOne", product);
     },
+    displayPrice(value) {
+      if (value < 100) {
+        return "0," + value + " €";
+      } else {
+        return (
+          value.toString().slice(0, -2) +
+          "," +
+          value.toString().slice(-2) +
+          " €"
+        );
+      }
+    }
   },
   computed: {
     getTotal() {
@@ -66,7 +76,7 @@ export default {
         const item = this.$store.state.panier[index];
         tot += item.produit.productPrice * item.quantite;
       }
-      return tot;
+      return this.displayPrice(tot);
     },
   },
 };
