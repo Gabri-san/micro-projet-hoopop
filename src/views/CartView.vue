@@ -1,5 +1,5 @@
 <template>
-  <h1>Votre panier</h1>
+  <h1 style="text-align: center;">Votre panier</h1>
   <div class="container panier" v-if="this.$store.state.panier.length>0">
     <div
       class="row align-items-center"
@@ -32,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div v-else>
+  <div v-else style="text-align: center;">
     <p>Le panier est vide !</p>
   </div>
 </template>
