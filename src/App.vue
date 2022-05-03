@@ -12,7 +12,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
@@ -27,5 +26,23 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.product {
+  background-color: lightgrey;
+  margin: 2em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.panier {
+  background-color: lightgrey;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.panier > .row {
+  margin: 1em;
 }
 </style>

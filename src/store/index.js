@@ -33,6 +33,20 @@ export default createStore({
           state.panier.splice(index, 1);
         }
       }
+    },
+    addOne(state, product) {
+      for(let index = 0; index < state.panier.length; index++) {
+        if(state.panier[index].produit.productId == product.produit.productId) {
+          product.quantite++
+        }
+      }
+    },
+    removeOne(state, product) {
+      for(let index = 0; index < state.panier.length; index++) {
+        if(state.panier[index].produit.productId == product.produit.productId) {
+          product.quantite >1 ? product.quantite-- : state.panier.splice(index, 1);
+        }
+      }
     }
   },
   actions: {},
